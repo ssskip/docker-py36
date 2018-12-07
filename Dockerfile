@@ -19,6 +19,7 @@ RUN apt-get update && \
                     tcl8.6-dev \ 
                     tk8.6-dev \ 
                     python-tk \
+                    fontconfig \
                     xfonts-75dpi \
                     xfonts-base \
                     fonts-arphic-ukai \
