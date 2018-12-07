@@ -3,7 +3,7 @@ FROM python:3.6-slim-stretch
 ENV DEBIAN_FRONTEND noninteractive
 
 # pillow https://pillow.readthedocs.io/en/3.0.x/installation.html#external-libraries
-# wkhtmltopdf xfonts-75dpi/xfonts-base/CJK support
+# wkhtmltopdf fontconfig/xfonts-75dpi/xfonts-base/CJK support
 # curl for healthcheck
 RUN apt-get update && \ 
     apt-get install -y --no-install-recommends \
@@ -35,5 +35,5 @@ RUN curl -sLO https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.
     dpkg -i wkhtmltox_0.12.5-1.stretch_amd64.deb && \
     rm -rf ./wkhtmltox_0.12.5-1.stretch_amd64.deb
 
-# install pipenv
-RUN pip --no-cache-dir install pipenv awscli
+# install pipenv awscli
+RUN pip --no-cache-dir install -U pipenv awscli
