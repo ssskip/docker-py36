@@ -1,9 +1,10 @@
-FROM python:3.6-stretch
+FROM python:3.6-slim-stretch
 
 ENV DEBIAN_FRONTEND noninteractive
 
 # pillow https://pillow.readthedocs.io/en/3.0.x/installation.html#external-libraries
 # wkhtmltopdf xfonts-75dpi/xfonts-base/CJK support
+# curl for healthcheck
 RUN apt-get update && \ 
     apt-get install -y --no-install-recommends \
                     apt-utils \
@@ -26,7 +27,7 @@ RUN apt-get update && \
                     fonts-ipafont-gothic \
                     fonts-unfonts-core \
                     && \
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+    rm -rf /var/lib/apt/lists/*
 
 # install wkhtmltopdf 
 RUN curl https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.5/wkhtmltox_0.12.5-1.stretch_amd64.deb --output wkhtmltox.deb && \
