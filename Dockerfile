@@ -30,9 +30,9 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 # install wkhtmltopdf 
-RUN curl https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.5/wkhtmltox_0.12.5-1.stretch_amd64.deb --output wkhtmltox.deb && \
-    dpkg -i wkhtmltox.deb && \
-    rm -rf ./wkhtmltox.deb
+RUN curl -sLO https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.5/wkhtmltox_0.12.5-1.stretch_amd64.deb && \
+    dpkg -i wkhtmltox_0.12.5-1.stretch_amd64.deb && \
+    rm -rf ./wkhtmltox_0.12.5-1.stretch_amd64.deb
 
 # install pipenv
 RUN pip --no-cache-dir install pipenv awscli
